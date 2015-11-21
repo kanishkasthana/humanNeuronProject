@@ -1,0 +1,14 @@
+So Rizi told me these things:
+1. The values in the cells are the log2 transform of the gene counts. So to get back counts you should just do 2^(value).
+2. The reads are mapped to GeneIDs. One gene might have multiple geneIDs but each geneID is associated with only one gene. This is because there might be multiple copies of the same gene.
+These copies might be slightly different from each other. You should disscuss with Wei whether you should merge these genes or not!
+3. The genes rizi has given me are only protein coding genes. There are way more genes then that in the cell. Wow, this is interesting I did not know humans had so many genes. I have to check this dude.
+ I always used to hear that there are 20000-25000 protein coding genes in humans. This is really surprising. I think I should discuss this.
+4. Also disscuss if we want to get other kinds of genes as well. Or only protein coding is cool. Not sure. Check with wei. Already this matrix is going to be really really large and the method I used before
+does not seem very scalable. 
+5. There should be about 3000 single cells from which this data was collected.
+6. The way gene Annotation is done is through Gencode. Rizi used Genecode 20 for this analysis. Should she have used something like Genecode 23? I don't know. I don't think this stuff is under my control.
+So I should most probably forget about this.
+7. I have to find a way to do version control on this data without having to use git. I don't think git can support a repository this size its crazy. Docker might also be hard to use because it does not
+work on the cluster. I hate manually copying these files dude. Not cool man. But I think I will have to do it, at least temporarily. Or add these larger files to .gitignore and only do the version control 
+on the code itself. I wish there was a way I could make git LFS work. Not cool man. Lets try to figure this out and find a solution.
