@@ -1,3 +1,5 @@
 ##Ignoring Large Files for which version control might not work##
 *.dat
 *.gtf
+.Rproj.user
+*.csv
