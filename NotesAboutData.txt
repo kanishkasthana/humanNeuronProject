@@ -12,3 +12,12 @@ So I should most probably forget about this.
 7. I have to find a way to do version control on this data without having to use git. I don't think git can support a repository this size its crazy. Docker might also be hard to use because it does not
 work on the cluster. I hate manually copying these files dude. Not cool man. But I think I will have to do it, at least temporarily. Or add these larger files to .gitignore and only do the version control 
 on the code itself. I wish there was a way I could make git LFS work. Not cool man. Lets try to figure this out and find a solution.
+8. Another point I wanted to add: Rizi told me the following things: the data in the cells is not Log2 of read counts its the log2 of TPM. TPM is calculated as follows: Reads*(10^6)/Total Reads. 
+So you will have to probably convert the mouse data to this metric and repeat the analysis. 
+9. Another concern is that the mouse Data seems to have used a very unique method that allowed them to calculate exact numbers of mRNA transcripts for each of their single cells.
+This is interesting because when reading Lior Patcher's blog about this he said thats its almost impossible to find out exact number of transcripts from RNA-seq data so this is something new. It seems like
+Rizi has not followed this logic and the method we have used is different, I think I should look into this, and potentially discuss this with Wei. 
+10. Next thing I should do I think is this: I am concerned about the cutoff we used to get the networks and the inverse covariance matrix. Also should I really be using lossy screening. I think I
+will not choose this option when I run the analysis again.
+11. Next point of concern is this: how do I compare the two mouse and human networks> I should talk to Kai about this dude. The problem is the number of genes in our comparison sample are also not the same.
+How do you make the comparison with different numbers of genes in your sample? I have to figure this out.
