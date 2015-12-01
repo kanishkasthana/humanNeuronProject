@@ -27,3 +27,6 @@ hist(log10(RowSums),100)
 #This is concerning none of these distributions are tightly distributed. Something is wrong here. I need to get the Raw reads
 #from Rizi. But First I think I need to think of whether the correlation analysis will control for this or not. My guess it that it will
 #Lets check this and see what next to do
+
+#Wait I remember this is data across only the protein coding genes. Phew, things are OK after all. Cool dude. And I thought I opened 
+# a can of worms or something holy shit thats awesome dude. Yes the distribution makes sense in light of that knowledge.
