@@ -21,3 +21,6 @@ Rizi has not followed this logic and the method we have used is different, I thi
 will not choose this option when I run the analysis again.
 11. Next point of concern is this: how do I compare the two mouse and human networks> I should talk to Kai about this dude. The problem is the number of genes in our comparison sample are also not the same.
 How do you make the comparison with different numbers of genes in your sample? I have to figure this out.
+12. http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/ Check this out and think carefully about what measure to use for the analysis that you are doing. We already know Rizi used TPM. I don't 
+know if she controlled for read length or not. It seems like she did not. In anycase I think I should move my analysis to TPM dude. Damn not corrected for length fuck. I hope I still get reliable results
+because the fuck up should be visible in all values of the cell I have right so this should be OK, I hope. Lets get on with this shit. I want to do a good job dude.
