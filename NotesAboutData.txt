@@ -23,4 +23,11 @@ will not choose this option when I run the analysis again.
 How do you make the comparison with different numbers of genes in your sample? I have to figure this out.
 12. http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/ Check this out and think carefully about what measure to use for the analysis that you are doing. We already know Rizi used TPM. I don't 
 know if she controlled for read length or not. It seems like she did not. In anycase I think I should move my analysis to TPM dude. Damn not corrected for length fuck. I hope I still get reliable results
-because the fuck up should be visible in all values of the cell I have right so this should be OK, I hope. Lets get on with this shit. I want to do a good job dude.
+because the fuck up should be visible in all values of the cell I have right so this should be OK, I hope. 
+
+Update: 
+Read the 2014 Nature methods paper about the UMI technique by the Linarsson lab. Its in my ucsd GDrive. The interesting thing is that taking the RPM for their data is ok because its a constant scalling factor.
+But as I expected before the counts we get are not proportional to gene lenght so there is no need to correct for that dude. 
+
+Another point. It seems like taking the logarithm of the matrix and then finding the correlations has a small but noticiable effect on the correlations. I have decided to convert the mouse data to this logarithm 
+approach dude and then get my network. I think its best to make operations on this network in Java. 
