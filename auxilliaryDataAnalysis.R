@@ -22,5 +22,8 @@ genesToInclude=apply(logicalExpressedValues,1,function(row){
   value=(sum(row)/totalCells)*100
 })
 
-#Genes that pass the test
 print(sum(genesToInclude>2))
+
+graphOutput=read.csv("graph_outputHuman.csv", header=TRUE)
+#This does not return any NA values. I think we are good, the analysis seems correct for now.
+sum(graphOutput)
