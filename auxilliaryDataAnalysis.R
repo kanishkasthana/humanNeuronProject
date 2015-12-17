@@ -25,5 +25,5 @@ genesToInclude=apply(logicalExpressedValues,1,function(row){
 print(sum(genesToInclude>2))
 
 graphOutput=read.csv("graph_outputHuman.csv", header=TRUE)
-#This does not return any NA values. I think we are good, the analysis seems correct for now.
+#This does not return any NA values. I think we are good, the analysis seems correct for now. UPDATE: its not correct there are values only along the diagnal. Fixing it now.
 sum(graphOutput)

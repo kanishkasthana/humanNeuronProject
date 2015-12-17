@@ -1,5 +1,4 @@
 library("huge")
-
 #Reading in Modified Data File
 expressionData=read.csv("hg-annoHeaderCorrection.csv", header=TRUE, stringsAsFactors = FALSE)
 #Getting Duplicated Gene Entries
@@ -12,8 +11,13 @@ expressionData=expressionData[!duplicatedGenesLogicalIndices,]
 
 #Getting Expression Values for all Genes across all single cells.
 expressionValues=expressionData[,(2:ncol(expressionData))]
+
 #Writing Genes for Later Use by the Java Program and possibly GO Term Analysis
 write.table(expressionData$geneName,"geneNamesHuman.csv",quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+#Removing NA values. Hopefully this will resolve the problems with the graph. Right now I am seeing values only 
+#along the diagnal. This should hopefully fix that problem.
+expressionValues[is.na(expressionValues)]=0
 
 expressionMatrix=as.matrix(t(expressionValues))
 print("Everything except Graph model done")
