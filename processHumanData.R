@@ -22,7 +22,7 @@ expressionValues[is.na(expressionValues)]=0
 expressionMatrix=as.matrix(t(expressionValues))
 print("Everything except Graph model done")
 #No need to do a Log transform and calculate RPM. Rizi already has done all this stuff. Moreover she used TPM
-graphModel = huge(expressionMatrix, method="glasso", lambda=c(0.0))
+graphModel = huge(expressionMatrix, method="glasso", lambda=c(0.75))
 print("Done!")
 
 #Reading output inverse covariance matrix for specified matrix. 
