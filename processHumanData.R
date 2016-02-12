@@ -19,19 +19,32 @@ write.table(expressionData$geneName,"geneNamesHuman.csv",quote=FALSE, row.names=
 #along the diagnal. This should hopefully fix that problem.
 expressionValues[is.na(expressionValues)]=0
 
+#Randomly sampling about 500 rows from the matrix to check what kind of sparsity I get.
+########################################################################################################
+randomRows=sample(1:nrow(expressionValues),500,replace = FALSE)
+expressionValues=expressionValues[randomRows,]
+########################################################################################################
+
 expressionMatrix=as.matrix(t(expressionValues))
 print("Everything except Graph model done")
 #No need to do a Log transform and calculate RPM. Rizi already has done all this stuff. Moreover she used TPM
-graphModel = huge(expressionMatrix, method="glasso", lambda=c(0.75))
+
+#Trying the output for a lot of lambdas. This should give me a sparcity vector in the output.
+#######################################################################################################
+lambdas=seq(0.01,1,by=0.01)
+graphModel = huge(expressionMatrix, method="glasso", lambda=lambdas)
 print("Done!")
+#######################################################################################################
 
+#Plotting relationship between sparsity and lambda
+plot(lambdas,graphModel$sparsity,type='l',main="Plot of Lambda cutoff vs Sparcity of graph",xlab="Lambda", ylab = "Sparsity of output")
 #Reading output inverse covariance matrix for specified matrix. 
-output=as.matrix(graphModel$icov[[1]])
-colnames(output)=unlist(expressionData$geneName)
+#output=as.matrix(graphModel$icov[[1]])
+#colnames(output)=unlist(expressionData$geneName)
 
-write.table(output,"graph_outputHuman.csv", sep=",", quote=FALSE, row.names = FALSE)
+#write.table(output,"graph_outputHuman.csv", sep=",", quote=FALSE, row.names = FALSE)
 
 #Converting to Zero Based Indexing for Java.
-rownames(output)=as.character(0:(nrow(expressionData)-1))
+#rownames(output)=as.character(0:(nrow(expressionData)-1))
 
-write.table(output,"graph_outputHumanForJava.csv", sep=",", quote=FALSE)
+#write.table(output,"graph_outputHumanForJava.csv", sep=",", quote=FALSE)
