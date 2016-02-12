@@ -35,5 +35,3 @@ write.table(output,"graph_outputHuman.csv", sep=",", quote=FALSE, row.names = FA
 rownames(output)=as.character(0:(nrow(expressionData)-1))
 
 write.table(output,"graph_outputHumanForJava.csv", sep=",", quote=FALSE)
-
-
