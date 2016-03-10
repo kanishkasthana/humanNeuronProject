@@ -26,6 +26,7 @@ expressionValues=expressionValues[randomRows,]
 ########################################################################################################
 
 expressionMatrix=as.matrix(t(expressionValues))
+print(dim(expressionValues))
 print("Everything except Graph model done")
 #No need to do a Log transform and calculate RPM. Rizi already has done all this stuff. Moreover she used TPM
 
