@@ -37,7 +37,9 @@ print("Done!")
 #######################################################################################################
 
 #Plotting relationship between sparsity and lambda
-plot(lambdas,graphModel$sparsity,type='l',main="Plot of Lambda cutoff vs Sparcity of graph",xlab="Lambda", ylab = "Sparsity of output")
+pdf("HumanSparcityGraph.pdf")
+plot(lambdas,graphModel$sparsity,type='l',main="Plot of Lambda cutoff vs Sparcity of Human graph",xlab="Lambda", ylab = "Sparsity of output")
+dev.off()
 #Reading output inverse covariance matrix for specified matrix. 
 #output=as.matrix(graphModel$icov[[1]])
 #colnames(output)=unlist(expressionData$geneName)
