@@ -3,3 +3,5 @@
 *.gtf
 .Rproj.user
 *.csv
+.ipynb_checkpoints/
+
