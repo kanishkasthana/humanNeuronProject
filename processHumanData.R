@@ -28,6 +28,12 @@ print(dim(expressionValues))
 expressionMatrix=as.matrix(t(expressionValues))
 print(dim(expressionMatrix))
 
+allGeneNames=sapply(expressionData$geneName,toupper)
+colnames(expressionMatrix)=allGeneNames
+commonMouseAndHumanGenes=unlist(read.csv("commonMouseAndHumanGenes.txt",header=FALSE))
+expressionMatrix=expressionMatrix[,commonMouseAndHumanGenes]
+print(dim(expressionMatrix))
+
 print("Everything except Graph model done")
 
 graphModel = huge(expressionMatrix, method="glasso", lambda=c(0.055))
