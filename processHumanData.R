@@ -44,6 +44,6 @@ print(dim(graphModel$icov[[1]]))
 
 #Reading output inverse covariance matrix for specified matrix. 
 output=as.matrix(graphModel$icov[[1]])
-colnames(output)=unlist(expressionData$geneName)
+colnames(output)=colnames(expressionMatrix)
 
 write.table(output,"graph_outputHumanAfterBugFix.csv", sep=",", quote=FALSE, row.names = FALSE)
