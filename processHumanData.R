@@ -46,19 +46,21 @@ print(dim(randomCellsFromExpressionMatrix2))
 print("Everything except Graph model done")
 
 graphModel1 = huge(randomCellsFromExpressionMatrix1, method="glasso", lambda=c(0.055))
-graphModel2 = huge(randomCellsFromExpressionMatrix2, method="glasso", lambda=c(0.055))
+output1=as.matrix(graphModel1$icov[[1]])
+colnames(output1)=colnames(expressionMatrix)
+write.table(output1,"graph_outputForRandomSample1.csv", sep=",", quote=FALSE, row.names = FALSE)
+print("Done First!")
 
-print("Done!")
+graphModel2 = huge(randomCellsFromExpressionMatrix2, method="glasso", lambda=c(0.055))
+output2=as.matrix(graphModel2$icov[[1]])
+colnames(output2)=colnames(expressionMatrix)
+write.table(output2,"graph_outputForRandomSample2.csv", sep=",", quote=FALSE, row.names = FALSE)
+
+print("Done Second!")
 #######################################################################################################
 
 print(dim(graphModel1$icov[[1]]))
 print(dim(graphModel2$icov[[1]]))
-
-output1=as.matrix(graphModel1$icov[[1]])
-colnames(output1)=colnames(expressionMatrix)
-
-output2=as.matrix(graphModel2$icov[[1]])
-colnames(output2)=colnames(expressionMatrix)
 
 #Getting Adjacency matrices and setting the diagnal to FALSE i.e. no self edges.
 logicalOutput1=(output1!=0)
@@ -88,5 +90,3 @@ print(sparsity2)
 print("Sparsity for Intersect of Random Samples:")
 intersectSparsity=sum(intersectofOutputs)/(nrow(intersectofOutputs)*ncol(intersectofOutputs))
 print(intersectSparsity)
-
-
