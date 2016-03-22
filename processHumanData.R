@@ -35,13 +35,13 @@ expressionMatrix=expressionMatrix[,commonMouseAndHumanGenes]
 print(dim(expressionMatrix))
 
 randomCells1=sample(1:nrow(expressionMatrix),size = 500,replace=FALSE)
-head(randomCells1)
+print(head(randomCells1))
 randomCells2=sample(1:nrow(expressionMatrix),size = 500,replace=FALSE)
-head(randomCells2)
+print(head(randomCells2))
 randomCellsFromExpressionMatrix1=expressionMatrix[randomCells1,]
-dim(randomCellsFromExpressionMatrix1)
+print(dim(randomCellsFromExpressionMatrix1))
 randomCellsFromExpressionMatrix2=expressionMatrix[randomCells2,]
-dim(randomCellsFromExpressionMatrix2)
+print(dim(randomCellsFromExpressionMatrix2))
 
 print("Everything except Graph model done")
 
