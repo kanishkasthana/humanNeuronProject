@@ -34,9 +34,9 @@ commonMouseAndHumanGenes=unlist(read.csv("commonMouseAndHumanGenes.txt",header=F
 expressionMatrix=expressionMatrix[,commonMouseAndHumanGenes]
 print(dim(expressionMatrix))
 
-randomCells1=sample(1:nrow(expressionMatrix),size = 500,replace=FALSE)
+randomCells1=sample(1:nrow(expressionMatrix),size = 1000,replace=FALSE)
 print(head(randomCells1))
-randomCells2=sample(1:nrow(expressionMatrix),size = 500,replace=FALSE)
+randomCells2=sample(1:nrow(expressionMatrix),size = 1000,replace=FALSE)
 print(head(randomCells2))
 randomCellsFromExpressionMatrix1=expressionMatrix[randomCells1,]
 print(dim(randomCellsFromExpressionMatrix1))
@@ -79,7 +79,6 @@ intersectEdgeDistribution=apply(intersectofOutputs,2,sum)
 hist(intersectEdgeDistribution,100, main = "Edge Distribution for Intersect of Random Samples")
 dev.off()
 
-sink("sparsityValues.txt")
 print("Sparsity for Random Sample 1:")
 sparsity1=sum(logicalOutput1)/(nrow(logicalOutput1)*ncol(logicalOutput1))
 print(sparsity1)
@@ -89,3 +88,5 @@ print(sparsity2)
 print("Sparsity for Intersect of Random Samples:")
 intersectSparsity=sum(intersectofOutputs)/(nrow(intersectofOutputs)*ncol(intersectofOutputs))
 print(intersectSparsity)
+
+
