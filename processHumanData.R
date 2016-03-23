@@ -84,6 +84,7 @@ intersectEdgeDistribution=apply(intersectofOutputs,2,sum)
 hist(intersectEdgeDistribution,100, main = "Edge Distribution for Intersect of Random Samples")
 dev.off()
 
+sink("sparsityValues.txt")
 print("Sparsity for Random Sample 1:")
 sparsity1=sum(logicalOutput1)/(nrow(logicalOutput1)*ncol(logicalOutput1))
 print(sparsity1)
