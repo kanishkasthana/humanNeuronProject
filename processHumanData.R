@@ -35,6 +35,7 @@ expressionMatrix=expressionMatrix[,commonMouseAndHumanGenes]
 print(dim(expressionMatrix))
 
 #Reducing the set of genes even more to see what happens. This code is behaving in a very weird way. What am I doing wrong?
+randomGenes=sample(1:ncol(expressionMatrix),size=1000,replace=FALSE)
 expressionMatrix=expressionMatrix[,1:1000]
 
 randomCells1=sample(1:nrow(expressionMatrix),size = 1000,replace=FALSE)
@@ -72,9 +73,9 @@ logicalOutput2=(output2!=0)
 diag(logicalOutput2)=FALSE
 pdf("Edge_Distribution_Statistics.pdf")
 edgeDistribution1=apply(logicalOutput1,2,sum)
-hist(edgeDistribution1,100, main = "Edge Distribution for First Random Sample of 500 Cells")
+hist(edgeDistribution1,100, main = "Edge Distribution for First Random Sample")
 edgeDistribution2=apply(logicalOutput2,2,sum)
-hist(edgeDistribution2,100, main = "Edge Distribution for Second Random Sample of 500 Cells")
+hist(edgeDistribution2,100, main = "Edge Distribution for Second Random Sample")
 
 #Getting Intersection of both outputs
 intersectofOutputs=((logicalOutput1+logicalOutput2)>1)
