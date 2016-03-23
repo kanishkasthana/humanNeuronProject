@@ -35,8 +35,8 @@ expressionMatrix=expressionMatrix[,commonMouseAndHumanGenes]
 print(dim(expressionMatrix))
 
 #Reducing the set of genes even more to see what happens. This code is behaving in a very weird way. What am I doing wrong?
-randomGenes=sample(1:ncol(expressionMatrix),size=1000,replace=FALSE)
-expressionMatrix=expressionMatrix[,1:1000]
+randomGenes=sample(1:ncol(expressionMatrix),size=6000,replace=FALSE)
+expressionMatrix=expressionMatrix[,randomGenes]
 
 randomCells1=sample(1:nrow(expressionMatrix),size = 1000,replace=FALSE)
 print(head(randomCells1))
