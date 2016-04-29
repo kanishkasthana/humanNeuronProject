@@ -4,4 +4,4 @@
 .Rproj.user
 *.csv
 .ipynb_checkpoints/
-
+*.jar
